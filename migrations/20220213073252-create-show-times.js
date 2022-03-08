@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('showtimes', {
+    await queryInterface.createTable('ShowTimes', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'films',
+          model: 'Films',
           key: 'id'
         }
       },
@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'cinemas',
+          model: 'Cinemas',
           key: 'id'
         }
       },
@@ -28,7 +28,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: 'rooms',
+          model: 'Rooms',
           key: 'id'
         }
       },
@@ -47,6 +47,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('showtimes');
+    await queryInterface.dropTable('ShowTimes');
   }
 };
